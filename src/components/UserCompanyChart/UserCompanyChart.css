@@ -1,0 +1,155 @@
+.user-company-chart {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid #0f62fe;
+}
+
+.user-company-chart.loading,
+.user-company-chart.error {
+  border-color: #e0e0e0;
+}
+
+.user-company-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.user-company-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #161616;
+}
+
+.user-company-name {
+  margin: 0;
+  font-size: 14px;
+  color: #525252;
+}
+
+.user-company-remove {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  color: #525252;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.user-company-remove:hover {
+  background-color: #f4f4f4;
+  border-color: #8d8d8d;
+  color: #161616;
+}
+
+.user-company-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.user-company-price,
+.user-company-change {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-label,
+.change-label {
+  font-size: 12px;
+  color: #525252;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.price-value {
+  font-size: 28px;
+  font-weight: 600;
+  color: #161616;
+}
+
+.change-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-company-change.positive .change-value {
+  color: #24a148;
+}
+
+.user-company-change.negative .change-value {
+  color: #da1e28;
+}
+
+.user-company-chart-container {
+  margin-top: 16px;
+}
+
+.user-company-no-data {
+  padding: 40px;
+  text-align: center;
+  color: #525252;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+}
+
+/* Error state */
+.user-company-error-content {
+  padding: 32px;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.error-message {
+  font-size: 16px;
+  font-weight: 600;
+  color: #da1e28;
+  margin: 0 0 8px 0;
+}
+
+.error-hint {
+  font-size: 14px;
+  color: #525252;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .user-company-chart {
+    padding: 16px;
+  }
+
+  .user-company-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .price-value {
+    font-size: 24px;
+  }
+
+  .change-value {
+    font-size: 16px;
+  }
+
+  .user-company-chart-container {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+/* Made with Bob */

@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
-import { COMPANIES, COMPANY_SYMBOLS } from '../../constants/companies';
+import { COMPANIES, COMPANY_SYMBOLS, generateDynamicColor } from '../../constants/companies';
 import { TIME_WINDOWS } from '../../constants/chartConfig';
 import { useMarketData } from '../../hooks/useMarketData';
+import financeService from '../../services/financeService';
 import TimeWindowSelector from '../TimeWindowSelector/TimeWindowSelector';
 import CompanyCard from '../CompanyCard/CompanyCard';
 import ChartPanel from '../ChartPanel/ChartPanel';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import CompanySelector from '../CompanySelector/CompanySelector';
+import UserCompanyChart from '../UserCompanyChart/UserCompanyChart';
 import './Dashboard.css';
 
 const Dashboard = () => {
   const [timeWindow, setTimeWindow] = useState(TIME_WINDOWS.DAY);
   const { data, loading, error, retry } = useMarketData(COMPANY_SYMBOLS, timeWindow);
+  
+  // User-selected company state
+  const [userSymbol, setUserSymbol] = useState(null);
+  const [userCompanyData, setUserCompanyData] = useState(null);
+  const [userCompanyLoading, setUserCompanyLoading] = useState(false);
+  const [userCompanyError, setUserCompanyError] = useState(null);
 
   // Prepare chart data by combining historical data from all companies
   const prepareChartData = () => {
@@ -40,6 +49,56 @@ const Dashboard = () => {
   };
 
   const chartData = prepareChartData();
+
+  // Handle user symbol submission
+  const handleSymbolSubmit = async (symbol) => {
+    setUserSymbol(symbol);
+    setUserCompanyLoading(true);
+    setUserCompanyError(null);
+    setUserCompanyData(null);
+
+    try {
+      // Fetch quote data
+      const quoteResult = await financeService.getQuote(symbol);
+      
+      if (!quoteResult.success) {
+        setUserCompanyError(quoteResult.error || `Unable to fetch data for ${symbol}. Please verify the symbol is correct.`);
+        setUserCompanyLoading(false);
+        return;
+      }
+
+      // Fetch historical data
+      const historicalResult = await financeService.getHistoricalData(symbol, timeWindow);
+      
+      if (!historicalResult.success) {
+        // Still show quote data even if historical fails
+        setUserCompanyData({
+          quote: quoteResult.data,
+          historical: null
+        });
+        setUserCompanyLoading(false);
+        return;
+      }
+
+      // Combine data
+      setUserCompanyData({
+        quote: quoteResult.data,
+        historical: historicalResult.data
+      });
+      setUserCompanyLoading(false);
+    } catch (err) {
+      setUserCompanyError(`Failed to load data for ${symbol}. Please try again.`);
+      setUserCompanyLoading(false);
+    }
+  };
+
+  // Handle removing user-selected company
+  const handleRemoveUserCompany = () => {
+    setUserSymbol(null);
+    setUserCompanyData(null);
+    setUserCompanyError(null);
+    setUserCompanyLoading(false);
+  };
 
   // Show full loading state only on initial load
   if (loading && Object.keys(data).length === 0) {
@@ -71,6 +130,11 @@ const Dashboard = () => {
       <TimeWindowSelector
         selected={timeWindow}
         onChange={setTimeWindow}
+      />
+
+      <CompanySelector
+        onSymbolSubmit={handleSymbolSubmit}
+        isLoading={userCompanyLoading}
       />
 
       {error && error.type === 'PARTIAL_ERROR' && (
@@ -118,6 +182,17 @@ const Dashboard = () => {
           error={error}
         />
       </section>
+
+      {userSymbol && (
+        <UserCompanyChart
+          symbol={userSymbol}
+          data={userCompanyData}
+          loading={userCompanyLoading}
+          error={userCompanyError}
+          onRemove={handleRemoveUserCompany}
+          color={generateDynamicColor(userSymbol)}
+        />
+      )}
 
       <footer className="dashboard-footer">
         <p>
