@@ -1,0 +1,69 @@
+.time-window-selector {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.selector-label {
+  font-weight: 600;
+  color: #262626;
+  font-size: 14px;
+}
+
+.selector-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.window-button {
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  background-color: #ffffff;
+  color: #595959;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.window-button:hover {
+  border-color: #0f62fe;
+  color: #0f62fe;
+  background-color: #f4f4f4;
+}
+
+.window-button.active {
+  background-color: #0f62fe;
+  color: #ffffff;
+  border-color: #0f62fe;
+}
+
+.window-button:focus {
+  outline: 2px solid #0f62fe;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .time-window-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .selector-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .window-button {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* Made with Bob */

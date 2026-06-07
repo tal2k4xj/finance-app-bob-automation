@@ -1,0 +1,91 @@
+.chart-panel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.chart-panel.loading,
+.chart-panel.error,
+.chart-panel.empty {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.chart-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #262626;
+  text-transform: capitalize;
+}
+
+.chart-container {
+  width: 100%;
+  height: 400px;
+}
+
+.custom-tooltip {
+  background-color: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tooltip-label {
+  font-weight: 600;
+  color: #262626;
+  margin: 0 0 8px 0;
+  font-size: 14px;
+}
+
+.custom-tooltip p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.error-content,
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #8c8c8c;
+}
+
+.error-content span,
+.empty-content span {
+  font-size: 48px;
+}
+
+.error-content p,
+.empty-content p {
+  margin: 0;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .chart-panel {
+    padding: 16px;
+  }
+
+  .chart-container {
+    height: 300px;
+  }
+
+  .chart-header h3 {
+    font-size: 18px;
+  }
+}
+
+/* Made with Bob */

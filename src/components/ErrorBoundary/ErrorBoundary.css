@@ -1,0 +1,118 @@
+.error-boundary {
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.full-error {
+  background-color: #fff1f0;
+  border: 1px solid #ffccc7;
+}
+
+.partial-error {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+}
+
+.error-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.error-title {
+  color: #262626;
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.error-message {
+  color: #595959;
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.failed-symbols {
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.failed-symbols p {
+  margin: 0;
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.retry-button,
+.show-data-button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-button {
+  background-color: #0f62fe;
+  color: white;
+}
+
+.retry-button:hover {
+  background-color: #0353e9;
+}
+
+.show-data-button {
+  background-color: #ffffff;
+  color: #0f62fe;
+  border: 1px solid #0f62fe;
+}
+
+.show-data-button:hover {
+  background-color: #f4f4f4;
+}
+
+.error-details {
+  margin-top: 20px;
+  text-align: left;
+  background-color: #f5f5f5;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid #d9d9d9;
+}
+
+.error-details summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #595959;
+  margin-bottom: 12px;
+}
+
+.error-details pre {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 12px;
+  color: #262626;
+  margin: 0;
+}
+
+/* Made with Bob */

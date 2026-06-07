@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompanyCard Snapshot should match snapshot when loading 1`] = `
+<div
+  class="company-card"
+  data-testid="company-card"
+>
+  <div
+    class="card-header"
+  >
+    <div
+      class="company-info"
+    >
+      <h3
+        class="company-symbol"
+      />
+      <p
+        class="company-name"
+      />
+    </div>
+  </div>
+  <div
+    class="card-body"
+  >
+    <div
+      class="price-section"
+    >
+      <div
+        class="current-price"
+      >
+        N/A
+      </div>
+      <div
+        class="price-change negative"
+      >
+        <span
+          class="change-value"
+        >
+          N/A
+        </span>
+        <span
+          class="change-percent"
+        >
+          (
+          N/A
+          )
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CompanyCard Snapshot should match snapshot with data 1`] = `
+<div
+  class="company-card"
+  data-testid="company-card"
+>
+  <div
+    class="card-header"
+  >
+    <div
+      class="company-info"
+    >
+      <h3
+        class="company-symbol"
+      />
+      <p
+        class="company-name"
+      />
+    </div>
+  </div>
+  <div
+    class="card-body"
+  >
+    <div
+      class="price-section"
+    >
+      <div
+        class="current-price"
+      >
+        N/A
+      </div>
+      <div
+        class="price-change negative"
+      >
+        <span
+          class="change-value"
+        >
+          N/A
+        </span>
+        <span
+          class="change-percent"
+        >
+          (
+          N/A
+          )
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CompanyCard Snapshot should match snapshot with error 1`] = `
+<div
+  class="company-card"
+  data-testid="company-card"
+>
+  <div
+    class="card-header"
+  >
+    <div
+      class="company-info"
+    >
+      <h3
+        class="company-symbol"
+      />
+      <p
+        class="company-name"
+      />
+    </div>
+  </div>
+  <div
+    class="card-body"
+  >
+    <div
+      class="price-section"
+    >
+      <div
+        class="current-price"
+      >
+        N/A
+      </div>
+      <div
+        class="price-change negative"
+      >
+        <span
+          class="change-value"
+        >
+          N/A
+        </span>
+        <span
+          class="change-percent"
+        >
+          (
+          N/A
+          )
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
