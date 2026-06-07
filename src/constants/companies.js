@@ -38,4 +38,19 @@ export const getCompanyBySymbol = (symbol) => {
   return COMPANIES.find(c => c.symbol === symbol);
 };
 
+/**
+ * Generate a consistent color for user-selected companies
+ * @param {string} symbol - Stock ticker symbol
+ * @returns {string} Hex color code
+ */
+export const generateDynamicColor = (symbol) => {
+  // Color palette for user-selected companies (distinct from default colors)
+  const colors = ['#1192e8', '#fa4d56', '#198038', '#b28600', '#8a3800', '#ee5396', '#6929c4'];
+  
+  // Generate consistent hash from symbol
+  const hash = symbol.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  
+  return colors[hash % colors.length];
+};
+
 // Made with Bob
